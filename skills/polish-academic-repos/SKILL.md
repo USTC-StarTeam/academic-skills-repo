@@ -1,6 +1,6 @@
 ---
 name: polish-academic-repos
-description: Use when improving or publishing an academic-paper code repository, README, docs site, project page, citation metadata, paper figures, experiment summaries, contact info, or hosted release page across GitHub, GitLab, Hugging Face, Zenodo, OSF, or similar platforms.
+description: Use when improving or publishing an academic-paper code repository, README, docs site, project/about metadata, citation metadata, paper figures, experiment summaries, contact info, or hosted release page across GitHub, GitLab, Hugging Face, Zenodo, OSF, or similar platforms.
 ---
 
 # Polish Academic Repos
@@ -53,23 +53,30 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
    - Preserve anchors when headings change, for example add an explicit citation anchor before a numbered citation heading.
    - Keep commands runnable and aligned with existing scripts.
 
-5. **Add method and result assets**
+5. **Set repository About metadata**
+   - Do not leave host-level About fields empty when the platform supports them.
+   - Use a concise description in the style `Venue Year | Project or paper name: short research contribution.` Keep it readable in repository cards and search results.
+   - Set the homepage/website to the best public landing page: project page first, then official paper page, DOI, arXiv, OpenReview, or README anchor.
+   - Add 5-8 lowercase topics that cover the task, method, domain, venue, and project name, for example `recommendation-system`, `sequential-recommendation`, `icml-2025`, `benchmark`, or the paper acronym.
+   - Verify the remote About metadata after publishing through the repository host UI/API/CLI.
+
+6. **Add method and result assets**
    - Crop the framework figure tightly: include the diagram itself, not neighboring body text, captions, related work, or page headers.
    - Save assets under a stable project path such as `docs/assets/`, `assets/figures/`, `website/static/`, or the existing equivalent.
    - Use descriptive names such as `method-overview.png`, `main-results.png`, `ablation.png`, `efficiency.png`, or `robustness.png`.
    - Visually inspect every crop and include alt text or captions that state the takeaway.
 
-6. **Summarize experimental highlights**
+7. **Summarize experimental highlights**
    - Prefer compact Markdown summaries over wide full-paper tables.
    - Include only figures that support clear conclusions: main gains, iteration curves, ablations, generated-data quality, efficiency, robustness, or qualitative examples.
    - State one conclusion after each result block, and avoid claims stronger than the paper supports.
 
-7. **Build or update the public page**
+8. **Build or update the public page**
    - Use the existing page stack when present. Common options include README-only, static `docs/index.html`, MkDocs, Jekyll, Docusaurus, Sphinx/ReadTheDocs, GitHub Pages, GitLab Pages, Hugging Face Spaces, or an institutional static site.
    - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact.
    - Test desktop and narrow mobile widths. Avoid tables, code blocks, and images that force horizontal scrolling.
 
-8. **Publish or hand off safely**
+9. **Publish or hand off safely**
    - Inspect VCS status and stage only relevant files.
    - Prefer a branch plus PR/MR for nontrivial edits. Directly update the default branch only when the user explicitly requests it or the project workflow permits it.
    - After publishing, verify remote file views, raw/static assets, docs build/deploy status, and the live page when applicable.
@@ -85,6 +92,7 @@ Run fresh checks before claiming completion:
 - image open/size check with a viewer, browser, PIL, ImageMagick, or equivalent
 - local link/page check when a project page or docs site exists
 - remote file, raw asset, and hosted page checks after publishing
+- repository About metadata check: description, homepage/website, and topics
 - CI/docs/deploy status check when the host provides one
 - final clean VCS status or an explicit patch summary
 
@@ -95,5 +103,6 @@ Run fresh checks before claiming completion:
 - Leaving paper metadata in a large table when a reference-style sentence is clearer.
 - Cropping method figures with surrounding paper text, related work, captions, or page headers.
 - Breaking README anchors after numbering headings.
+- Leaving repository About description, homepage, or topics empty after polishing the README.
 - Adding wide tables or single-line code blocks that overflow on mobile.
 - Publishing a project page link before the hosted docs build is live.
