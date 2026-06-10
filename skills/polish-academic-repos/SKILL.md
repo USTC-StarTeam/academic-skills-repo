@@ -98,6 +98,7 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
    - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact. Do not stop at only hero, method, a few result cards, and citation when the README contains more runnable or reproducibility content.
    - Put project-page contact information in the same order as the README: first/co-first authors, then corresponding authors.
    - Keep the same paper-introduction hierarchy on the project page: reference-style entry, compact paper links, official presentation/material links, then one contribution paragraph. Avoid burying paper links only in hero buttons.
+   - Do not place a large brand-and-section navigation bar above the hero. Let the page start with the paper identity; if section navigation is useful, use a compact table of contents after the hero or near the start of the content.
    - When the page lives under a hosted subdirectory such as `docs/`, rewrite or copy README-local assets so images, PDFs, posters, slides, and repository files resolve from the hosted page. Root-only paths like `fig/...` or `assets/...` may need to move into `docs/assets/` or become repository-host links.
    - Test desktop and narrow mobile widths. Avoid tables, code blocks, and images that force horizontal scrolling.
 
@@ -138,6 +139,7 @@ Run fresh checks before claiming completion:
 - Leaving `Experimental Highlights` as generic prose without metrics, figures, benchmark/task names, ablations, efficiency results, dataset statistics, qualitative examples, or a source-limited note.
 - Copying unsupported numeric claims when the paper table is not accessible; source limits should be explicit rather than hidden.
 - Creating a project page that only summarizes the paper and omits README sections for install, data, quick start, reproduction, configuration, notes, citation, or contact.
+- Adding a large top navigation block with repository branding and every section link before the hero; it delays the paper identity and feels like duplicated chrome. Keep navigation compact and secondary.
 - Linking README-local root assets from a hosted subdirectory without copying them into the served assets folder or converting them to repository-host links.
 - Breaking README anchors after numbering headings.
 - Leaving repository About description, homepage, or topics empty after polishing the README.
