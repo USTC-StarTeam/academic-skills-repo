@@ -56,7 +56,8 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
 5. **Set repository About metadata**
    - Do not leave host-level About fields empty when the platform supports them.
    - Use a concise description in the style `Venue Year | Project or paper name: short research contribution.` Keep it readable in repository cards and search results.
-   - Set the homepage/website to the best public landing page: project page first, then official paper page, DOI, arXiv, OpenReview, or README anchor.
+   - Set the homepage/website to the best public landing page: live project page first, then official paper page, DOI, arXiv, OpenReview, or README anchor.
+   - When a project page is created, point About homepage to the live page URL and place arXiv/DOI/OpenReview links inside the Paper section instead of using them as the primary homepage.
    - Add 5-8 lowercase topics that cover the task, method, domain, venue, and project name, for example `recommendation-system`, `sequential-recommendation`, `icml-2025`, `benchmark`, or the paper acronym.
    - Verify the remote About metadata after publishing through the repository host UI/API/CLI.
 
@@ -74,6 +75,7 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
 8. **Build or update the public page**
    - Use the existing page stack when present. Common options include README-only, static `docs/index.html`, MkDocs, Jekyll, Docusaurus, Sphinx/ReadTheDocs, GitHub Pages, GitLab Pages, Hugging Face Spaces, or an institutional static site.
    - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact.
+   - Keep paper links such as arXiv, DOI, OpenReview, and proceedings in the paper-introduction copy unless the user explicitly wants them as primary buttons.
    - Test desktop and narrow mobile widths. Avoid tables, code blocks, and images that force horizontal scrolling.
 
 9. **Publish or hand off safely**
