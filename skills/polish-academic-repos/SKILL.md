@@ -90,9 +90,11 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
 
 9. **Build or update the public page**
    - Use the existing page stack when present. Common options include README-only, static `docs/index.html`, MkDocs, Jekyll, Docusaurus, Sphinx/ReadTheDocs, GitHub Pages, GitLab Pages, Hugging Face Spaces, or an institutional static site.
-   - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact.
+   - Treat the project page as the hosted public version of the README, not a short abstract. Represent every public-facing README section: paper identity, official links/materials, highlights, method/results figures, repository structure, installation, data/models, quick start, reproduction/evaluation, configuration notes, experimental highlights, citation, and contact.
+   - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact. Do not stop at only hero, method, a few result cards, and citation when the README contains more runnable or reproducibility content.
    - Put project-page contact information in the same order as the README: first/co-first authors, then corresponding authors.
    - Keep the same paper-introduction hierarchy on the project page: reference-style entry, compact paper links, official presentation/material links, then one contribution paragraph. Avoid burying paper links only in hero buttons.
+   - When the page lives under a hosted subdirectory such as `docs/`, rewrite or copy README-local assets so images, PDFs, posters, slides, and repository files resolve from the hosted page. Root-only paths like `fig/...` or `assets/...` may need to move into `docs/assets/` or become repository-host links.
    - Test desktop and narrow mobile widths. Avoid tables, code blocks, and images that force horizontal scrolling.
 
 10. **Publish or hand off safely**
@@ -110,8 +112,10 @@ Run fresh checks before claiming completion:
 - placeholder scan for `TODO`, `TBD`, `PLACEHOLDER`, `coming soon`, stale local paths, and broken temporary URLs
 - image open/size check with a viewer, browser, PIL, ImageMagick, or equivalent
 - local link/page check when a project page or docs site exists
+- README/project-page parity check: every public-facing README section appears on the project page, or an intentional short summary links to the full README for very long maintainer-only or catalog content
 - official-source link check for conference/proceedings pages, OpenReview, arXiv/DOI, project page, slides/PPT, video, and poster assets
 - contact-order check: first/co-first authors appear before corresponding authors, all role labels match the paper's author notes, and every email is verified or explicitly omitted
+- hosted asset-path check for static pages: local `src` and `href` targets resolve from the page directory, not only from the repository root
 - remote file, raw asset, and hosted page checks after publishing
 - repository About metadata check: description, homepage/website, and topics
 - CI/docs/deploy status check when the host provides one
@@ -126,6 +130,8 @@ Run fresh checks before claiming completion:
 - Listing only corresponding authors in Contact and omitting the first author or co-first authors.
 - Guessing author emails from name patterns instead of verifying them from the paper or official profiles.
 - Cropping method figures with surrounding paper text, related work, captions, or page headers.
+- Creating a project page that only summarizes the paper and omits README sections for install, data, quick start, reproduction, configuration, notes, citation, or contact.
+- Linking README-local root assets from a hosted subdirectory without copying them into the served assets folder or converting them to repository-host links.
 - Breaking README anchors after numbering headings.
 - Leaving repository About description, homepage, or topics empty after polishing the README.
 - Adding wide tables or single-line code blocks that overflow on mobile.
