@@ -49,7 +49,10 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
      - `11. Notes For Maintainers`
      - `12. Citation`
      - `13. Contact`
-   - Write the Paper section like a reference entry, not a bulky metadata table, unless a table is clearer for the audience.
+   - Write the Paper section as a three-part introduction, not a bulky metadata table, unless a table is clearer for the audience:
+     - reference-style paper entry with authors, bold title, venue, location or proceedings details, and year
+     - separate link line such as `Paper / PDF / Project Page / Citation`
+     - one short paragraph explaining what the paper contributes and how the repository supports it
    - Preserve anchors when headings change, for example add an explicit citation anchor before a numbered citation heading.
    - Keep commands runnable and aligned with existing scripts.
 
@@ -75,7 +78,7 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
 8. **Build or update the public page**
    - Use the existing page stack when present. Common options include README-only, static `docs/index.html`, MkDocs, Jekyll, Docusaurus, Sphinx/ReadTheDocs, GitHub Pages, GitLab Pages, Hugging Face Spaces, or an institutional static site.
    - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact.
-   - Keep paper links such as arXiv, DOI, OpenReview, and proceedings in the paper-introduction copy unless the user explicitly wants them as primary buttons.
+   - Keep the same paper-introduction hierarchy on the project page: reference-style entry, compact paper links, then one contribution paragraph. Avoid burying paper links only in hero buttons.
    - Test desktop and narrow mobile widths. Avoid tables, code blocks, and images that force horizontal scrolling.
 
 9. **Publish or hand off safely**
@@ -102,7 +105,7 @@ Run fresh checks before claiming completion:
 
 - Assuming a host- or agent-specific workflow when the same repository story should work across different tools and platforms.
 - Putting experiments before installation and quick start, which makes the repository feel like a paper PDF rather than runnable code.
-- Leaving paper metadata in a large table when a reference-style sentence is clearer.
+- Leaving paper metadata in a large table when a reference-style entry plus links and a short contribution paragraph is clearer.
 - Cropping method figures with surrounding paper text, related work, captions, or page headers.
 - Breaking README anchors after numbering headings.
 - Leaving repository About description, homepage, or topics empty after polishing the README.
