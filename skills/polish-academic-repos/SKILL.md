@@ -68,6 +68,7 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
    - Use verified emails from the paper, official conference page, OpenReview, author homepage, or organization profile. Do not invent a missing email; list the verified name and note that no public email was found if needed.
    - Preserve anchors when headings change, for example add an explicit citation anchor before a numbered citation heading.
    - Keep commands runnable and aligned with existing scripts.
+   - Do not leave `Experimental Highlights` as generic prose. For papers with experiments, this section must include at least one source-backed metric, table excerpt, figure/caption, benchmark name, ablation, efficiency result, or qualitative example with an explicit conclusion. For surveys, position papers, datasets, or systems papers without conventional experiments, use a `Survey Findings`, `Benchmark Findings`, or `System Findings` section that states the evidence axes instead of inventing a leaderboard.
 
 6. **Set repository About metadata**
    - Do not leave host-level About fields empty when the platform supports them.
@@ -87,6 +88,9 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
    - Prefer compact Markdown summaries over wide full-paper tables.
    - Include only figures that support clear conclusions: main gains, iteration curves, ablations, generated-data quality, efficiency, robustness, or qualitative examples.
    - State one conclusion after each result block, and avoid claims stronger than the paper supports.
+   - For each experimental subsection, include source-backed evidence before interpretation: metric values, relative improvements, table rows, benchmark/task names, result figures, ablation deltas, efficiency/latency/cost numbers, dataset statistics, or a clearly labeled qualitative case.
+   - If official tables or PDFs are blocked, not public, or not mirrored in the repository, do not guess numbers. State the source limitation, summarize only verified qualitative claims, and point readers to reproduction commands or the official source to regenerate exact metrics.
+   - Keep result summaries readable: use small tables for 2-6 key rows, bullets for ablations or efficiency, and one sentence of conclusion per block.
 
 9. **Build or update the public page**
    - Use the existing page stack when present. Common options include README-only, static `docs/index.html`, MkDocs, Jekyll, Docusaurus, Sphinx/ReadTheDocs, GitHub Pages, GitLab Pages, Hugging Face Spaces, or an institutional static site.
@@ -113,6 +117,7 @@ Run fresh checks before claiming completion:
 - image open/size check with a viewer, browser, PIL, ImageMagick, or equivalent
 - local link/page check when a project page or docs site exists
 - README/project-page parity check: every public-facing README section appears on the project page, or an intentional short summary links to the full README for very long maintainer-only or catalog content
+- experimental-results substance check: every `Experimental Highlights`, `Survey Findings`, `Benchmark Findings`, or equivalent result-facing section contains concrete evidence such as numbers, table rows, figures, benchmark names, ablations, efficiency results, dataset statistics, qualitative examples, or an explicit source-limited note. Generic claims like "the paper reports improvements" are not enough.
 - official-source link check for conference/proceedings pages, OpenReview, arXiv/DOI, project page, slides/PPT, video, and poster assets
 - contact-order check: first/co-first authors appear before corresponding authors, all role labels match the paper's author notes, and every email is verified or explicitly omitted
 - hosted asset-path check for static pages: local `src` and `href` targets resolve from the page directory, not only from the repository root
@@ -130,6 +135,8 @@ Run fresh checks before claiming completion:
 - Listing only corresponding authors in Contact and omitting the first author or co-first authors.
 - Guessing author emails from name patterns instead of verifying them from the paper or official profiles.
 - Cropping method figures with surrounding paper text, related work, captions, or page headers.
+- Leaving `Experimental Highlights` as generic prose without metrics, figures, benchmark/task names, ablations, efficiency results, dataset statistics, qualitative examples, or a source-limited note.
+- Copying unsupported numeric claims when the paper table is not accessible; source limits should be explicit rather than hidden.
 - Creating a project page that only summarizes the paper and omits README sections for install, data, quick start, reproduction, configuration, notes, citation, or contact.
 - Linking README-local root assets from a hosted subdirectory without copying them into the served assets folder or converting them to repository-host links.
 - Breaking README anchors after numbering headings.
