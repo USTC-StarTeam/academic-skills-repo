@@ -1,4 +1,4 @@
 interface:
   display_name: "Polish Academic Repos"
   short_description: "Polish academic code releases"
-  default_prompt: "Use this skill to improve an academic paper repository across agentic coding tools and hosting platforms: read the paper, confirm official conference/project/OpenReview/arXiv/DOI sources, add slides/video/poster links when available, organize docs, order Contact by first/co-first authors before corresponding authors, update repository About metadata, add figures and results, verify links, and publish or prepare a clean patch."
+  default_prompt: "Use this skill to improve an academic paper repository across agentic coding tools and hosting platforms: read the paper, confirm official conference/project/OpenReview/arXiv/DOI sources, add slides/video/poster links when available, organize docs, add paper-native experimental result figures/tables when accessible, order Contact by first/co-first authors before corresponding authors with verified emails, update repository About metadata, verify links, and publish or prepare a clean patch."
