@@ -25,7 +25,7 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
    - Avoid changing algorithms, model weights, training behavior, or benchmark logic unless documentation accuracy requires a small fix.
 
 2. **Read the paper**
-   - Extract title, all authors, venue, year, arXiv/DOI/official links, affiliations, citation, correspondence, method figure, main tables, ablations, efficiency, robustness, and limitations.
+   - Extract title, all authors, first-author or co-first-author markers, corresponding-author markers, venue, year, arXiv/DOI/official links, affiliations, citation, contact emails, method figure, main tables, ablations, efficiency, robustness, and limitations.
    - Render the PDF visually before cropping figures. Do not rely only on text extraction for diagrams and tables.
    - Verify current paper metadata from primary sources when it may have changed.
 
@@ -61,6 +61,11 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
      - separate link line such as `Paper / PDF / OpenReview / Project Page / Citation`
      - one short paragraph explaining what the paper contributes and how the repository supports it
    - When official presentation assets exist, add `Slides`, `PPT`, `Video`, or `Poster` to the link line or a short `Conference materials` list under `1. Paper`.
+   - Write the Contact section in role order:
+     - first author first; if the paper marks equal contribution or co-first authors, include every co-first author in paper order
+     - corresponding author or authors after the first/co-first authors, using the paper's correspondence footnotes or official metadata
+     - repository issue/contact instructions last
+   - Use verified emails from the paper, official conference page, OpenReview, author homepage, or organization profile. Do not invent a missing email; list the verified name and note that no public email was found if needed.
    - Preserve anchors when headings change, for example add an explicit citation anchor before a numbered citation heading.
    - Keep commands runnable and aligned with existing scripts.
 
@@ -86,6 +91,7 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
 9. **Build or update the public page**
    - Use the existing page stack when present. Common options include README-only, static `docs/index.html`, MkDocs, Jekyll, Docusaurus, Sphinx/ReadTheDocs, GitHub Pages, GitLab Pages, Hugging Face Spaces, or an institutional static site.
    - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact.
+   - Put project-page contact information in the same order as the README: first/co-first authors, then corresponding authors.
    - Keep the same paper-introduction hierarchy on the project page: reference-style entry, compact paper links, official presentation/material links, then one contribution paragraph. Avoid burying paper links only in hero buttons.
    - Test desktop and narrow mobile widths. Avoid tables, code blocks, and images that force horizontal scrolling.
 
@@ -105,6 +111,7 @@ Run fresh checks before claiming completion:
 - image open/size check with a viewer, browser, PIL, ImageMagick, or equivalent
 - local link/page check when a project page or docs site exists
 - official-source link check for conference/proceedings pages, OpenReview, arXiv/DOI, project page, slides/PPT, video, and poster assets
+- contact-order check: first/co-first authors appear before corresponding authors, all role labels match the paper's author notes, and every email is verified or explicitly omitted
 - remote file, raw asset, and hosted page checks after publishing
 - repository About metadata check: description, homepage/website, and topics
 - CI/docs/deploy status check when the host provides one
@@ -116,6 +123,8 @@ Run fresh checks before claiming completion:
 - Putting experiments before installation and quick start, which makes the repository feel like a paper PDF rather than runnable code.
 - Leaving paper metadata in a large table when a reference-style entry plus links and a short contribution paragraph is clearer.
 - Trusting stale README or preprint metadata without checking official conference, proceedings, OpenReview, DOI, project, slides, video, and poster pages.
+- Listing only corresponding authors in Contact and omitting the first author or co-first authors.
+- Guessing author emails from name patterns instead of verifying them from the paper or official profiles.
 - Cropping method figures with surrounding paper text, related work, captions, or page headers.
 - Breaking README anchors after numbering headings.
 - Leaving repository About description, homepage, or topics empty after polishing the README.
