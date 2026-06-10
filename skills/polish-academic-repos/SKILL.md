@@ -1,6 +1,6 @@
 ---
 name: polish-academic-repos
-description: Use when improving or publishing an academic-paper code repository, README, docs site, project/about metadata, citation metadata, paper figures, experiment summaries, contact info, or hosted release page across GitHub, GitLab, Hugging Face, Zenodo, OSF, or similar platforms.
+description: Use when improving or publishing an academic-paper code repository, README, docs site, project/about metadata, citation metadata, official conference/project links, paper figures, experiment summaries, contact info, or hosted release page across GitHub, GitLab, Hugging Face, Zenodo, OSF, or similar platforms.
 ---
 
 # Polish Academic Repos
@@ -29,12 +29,19 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
    - Render the PDF visually before cropping figures. Do not rely only on text extraction for diagrams and tables.
    - Verify current paper metadata from primary sources when it may have changed.
 
-3. **Design the public story**
+3. **Verify official publication sources**
+   - Search for authoritative public pages for the paper: conference virtual/poster/oral page, proceedings page, OpenReview, arXiv, DOI/publisher page, official project page, lab page, dataset/model card, SlidesLive/YouTube/Bilibili video, and official slide/poster/PPT assets.
+   - Prefer the most official and current source for title, author order, venue, date, location, abstract, acceptance type, citation, and contact. Correct stale README claims when a conference page, proceedings page, or OpenReview entry supersedes older preprint metadata.
+   - Capture presentation materials when available: `Paper`, `PDF`, `OpenReview`, `Project Page`, `Slides` or `PPT`, `Video`, `Poster`, `Code`, `Dataset`, and `Citation`.
+   - Add these links to the Paper section and project page in a compact link line or short materials list. Do not bury them only in hero buttons or repository topics.
+   - Check that every official link resolves before publishing, and note uncertainty when a conference page has not yet posted proceedings, slides, or video.
+
+4. **Design the public story**
    - Lead with what the paper is, why the repository matters, where to read it, and how to cite it.
    - Put installation, data, quick start, and reproduction instructions before long experiment galleries.
    - Put experimental highlights after runnable-code sections so the repository still feels usable by developers.
 
-4. **Implement README or docs structure**
+5. **Implement README or docs structure**
    - Use a numbered outline unless the project already has a stronger convention:
      - `1. Paper`
      - `2. Highlights`
@@ -51,37 +58,38 @@ Use this as a tool-agnostic workflow for AI coding assistants, repository agents
      - `13. Contact`
    - Write the Paper section as a three-part introduction, not a bulky metadata table, unless a table is clearer for the audience:
      - reference-style paper entry with authors, bold title, venue, location or proceedings details, and year
-     - separate link line such as `Paper / PDF / Project Page / Citation`
+     - separate link line such as `Paper / PDF / OpenReview / Project Page / Citation`
      - one short paragraph explaining what the paper contributes and how the repository supports it
+   - When official presentation assets exist, add `Slides`, `PPT`, `Video`, or `Poster` to the link line or a short `Conference materials` list under `1. Paper`.
    - Preserve anchors when headings change, for example add an explicit citation anchor before a numbered citation heading.
    - Keep commands runnable and aligned with existing scripts.
 
-5. **Set repository About metadata**
+6. **Set repository About metadata**
    - Do not leave host-level About fields empty when the platform supports them.
    - Use a concise description in the style `Venue Year | Project or paper name: short research contribution.` Keep it readable in repository cards and search results.
-   - Set the homepage/website to the best public landing page: live project page first, then official paper page, DOI, arXiv, OpenReview, or README anchor.
+   - Set the homepage/website to the best public landing page: live project page first, then official conference/project page, OpenReview, DOI, arXiv, or README anchor.
    - When a project page is created, point About homepage to the live page URL and place arXiv/DOI/OpenReview links inside the Paper section instead of using them as the primary homepage.
    - Add 5-8 lowercase topics that cover the task, method, domain, venue, and project name, for example `recommendation-system`, `sequential-recommendation`, `icml-2025`, `benchmark`, or the paper acronym.
    - Verify the remote About metadata after publishing through the repository host UI/API/CLI.
 
-6. **Add method and result assets**
+7. **Add method and result assets**
    - Crop the framework figure tightly: include the diagram itself, not neighboring body text, captions, related work, or page headers.
    - Save assets under a stable project path such as `docs/assets/`, `assets/figures/`, `website/static/`, or the existing equivalent.
    - Use descriptive names such as `method-overview.png`, `main-results.png`, `ablation.png`, `efficiency.png`, or `robustness.png`.
    - Visually inspect every crop and include alt text or captions that state the takeaway.
 
-7. **Summarize experimental highlights**
+8. **Summarize experimental highlights**
    - Prefer compact Markdown summaries over wide full-paper tables.
    - Include only figures that support clear conclusions: main gains, iteration curves, ablations, generated-data quality, efficiency, robustness, or qualitative examples.
    - State one conclusion after each result block, and avoid claims stronger than the paper supports.
 
-8. **Build or update the public page**
+9. **Build or update the public page**
    - Use the existing page stack when present. Common options include README-only, static `docs/index.html`, MkDocs, Jekyll, Docusaurus, Sphinx/ReadTheDocs, GitHub Pages, GitLab Pages, Hugging Face Spaces, or an institutional static site.
    - Mirror the README story: hero or header with paper identity, method section with the framework figure, code/usage section, results section, citation, and contact.
-   - Keep the same paper-introduction hierarchy on the project page: reference-style entry, compact paper links, then one contribution paragraph. Avoid burying paper links only in hero buttons.
+   - Keep the same paper-introduction hierarchy on the project page: reference-style entry, compact paper links, official presentation/material links, then one contribution paragraph. Avoid burying paper links only in hero buttons.
    - Test desktop and narrow mobile widths. Avoid tables, code blocks, and images that force horizontal scrolling.
 
-9. **Publish or hand off safely**
+10. **Publish or hand off safely**
    - Inspect VCS status and stage only relevant files.
    - Prefer a branch plus PR/MR for nontrivial edits. Directly update the default branch only when the user explicitly requests it or the project workflow permits it.
    - After publishing, verify remote file views, raw/static assets, docs build/deploy status, and the live page when applicable.
@@ -96,6 +104,7 @@ Run fresh checks before claiming completion:
 - placeholder scan for `TODO`, `TBD`, `PLACEHOLDER`, `coming soon`, stale local paths, and broken temporary URLs
 - image open/size check with a viewer, browser, PIL, ImageMagick, or equivalent
 - local link/page check when a project page or docs site exists
+- official-source link check for conference/proceedings pages, OpenReview, arXiv/DOI, project page, slides/PPT, video, and poster assets
 - remote file, raw asset, and hosted page checks after publishing
 - repository About metadata check: description, homepage/website, and topics
 - CI/docs/deploy status check when the host provides one
@@ -106,6 +115,7 @@ Run fresh checks before claiming completion:
 - Assuming a host- or agent-specific workflow when the same repository story should work across different tools and platforms.
 - Putting experiments before installation and quick start, which makes the repository feel like a paper PDF rather than runnable code.
 - Leaving paper metadata in a large table when a reference-style entry plus links and a short contribution paragraph is clearer.
+- Trusting stale README or preprint metadata without checking official conference, proceedings, OpenReview, DOI, project, slides, video, and poster pages.
 - Cropping method figures with surrounding paper text, related work, captions, or page headers.
 - Breaking README anchors after numbering headings.
 - Leaving repository About description, homepage, or topics empty after polishing the README.
